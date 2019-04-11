@@ -2,7 +2,11 @@
 1
 1+1
 class(1)
+<<<<<<< HEAD
 class(true)
+=======
+class(TRUE)
+>>>>>>> upstream/master
 class(1L)
 1:10
 c(1,10,20,-10)

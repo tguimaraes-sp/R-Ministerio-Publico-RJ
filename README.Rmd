@@ -1,19 +1,17 @@
 ---
-title: "Introdução ao R/Tidyverse"
 output: github_document
 ---
+
+## Introdução à Ciência de Dados com R/tidyverse <img width="200" src="pics/puc_mprj_inova.png" align="right" style="padding-left:10px;background-color:white"/>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  dpi=72*2
 )
-```
-
-```{r,eval=T,echo=F,out.width='33%'}
-knitr::include_graphics("pics/mprj_and_puc.png")
 ```
 
 * Organizador: Daniel Lima Ribeiro (MP-RJ), daniel@mprj.mp.br
@@ -21,36 +19,90 @@ knitr::include_graphics("pics/mprj_and_puc.png")
 * Monitores
     + [Matheus Donato (ENCE/IBGE)](https://www.linkedin.com/in/matheus-donato-75526388/), donats.donato@gmail.com
     + Thomás Jagoda (UFRJ), thomasjagoda@poli.ufrj.br
+* Homepage: [https://dan-reznik.github.io/MPRJ-Main/](https://dan-reznik.github.io/MPRJ-Main/)
 
-## Notebook recomendado
+### Notebook recomendado
 
 * CPU i3 (6a geração ou melhor), RAM >=  4Gb, Windows10  
 * Tela: 14” (ou maior) e "full HD" (1920x1080). Evitar telas HD “puro” (720p)
 * Exemplo: [Samsung Essentials E30](https://www.americanas.com.br/produto/133794107)
 
-## Downloads p/ Windows10
+### Downloads p/ Windows10
 
 * [R 3.5.3](https://cran.r-project.org/bin/windows/base/)
 * [RStudio 1.1.463](https://download1.rstudio.org/RStudio-1.1.463.exe)
 * [Git](https://git-scm.com/download/win)
 * [Notepad++](https://notepad-plus-plus.org/download/v7.6.4.html)
 
-## Pós-Instalação
+### Pós-Instalação
 
-* Instalar pacote “tidyverse” executando no cmd prompt:
+* Instalar pacote `tidyverse` executando no cmd prompt:
     + `R -e "install.packages('tidyverse',repo='https://cloud.r-project.org')"`
-* Versionamento
+    
+### Git e GitHub
+
+```{r,eval=T,echo=F,out.width='50%'}
+knitr::include_graphics("pics/git.png")
+```
+
+* GitHub
     + Criar conta no GitHub
     + Fork: https://github.com/dan-reznik/R-Ministerio-Publico-RJ
-    + Executar na tela de comando do windows:
-        + `git config --global user.email "<seu_mail>@<...>.com"`
-        + `git config --global user.name "<seu nome>"`
-    + No RStudio, criar chaves de segurança SSH
-    + Cmd prompt: na pasta do projeto executar:
-        + `git remote -v`
-        + `git remote set-url origin git@github.com:user/repo_name.git`
+* RStudio, criar chaves SSH
+    + `git remote -v`
+    + `git remote set-url origin git@github.com:user/repo_name.git`
+* Git, identificar usuário no cmd prompt:
+    + `git config --global user.email "<seu_mail>@<...>.com"`
+    + `git config --global user.name "<seu nome>"`
+    
+### Plano de Aulas (sujeito a alterações)
 
-## Livros Online (grátis)
+* Aula 1
+    + [Slides introdutórios](https://github.com/dan-reznik/MPRJ-Main/blob/master/aulas%20ppt/R%20Ministerio%20Publico%20Aula%201.pptx?raw=true)
+    + Colocamos alunos no GitHub, fork do repositório, clonagem
+    + Navegação no RStudio
+    + Comandos básicos de R no console
+* Aula 2
+    + "refork" do projeto c/ delete, clonagem
+    + Comandos basicos do R num script .R
+    + Introdução a notebooks
+    + Criação de dataframes manualmente
+    + Leitura e exportação de dataframes com arquivos .csv
+* Aula 3
+    + Rename remote: `git remote set-url origin https://github.com/dan-reznik/MPRJ-Main`
+    + Atualizar o fork do projeto
+        + `git remote add upstream https://github.com/dan-reznik/R-Ministerio-Publico-RJ && git fetch upstream && git checkout master && git merge upstream/master`
+        + Nota: em caso de erro de merge, `git add .` e repetir
+        + "push" p/ seu fork pelo Rstudio
+    + Introdução ao "pipe" `%>%`
+    + Os 5 verbos do `dplyr`: select, filter, group_by, summarize, arrange
+    + [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+    + Exercícios
+* Aula 4
+    + Visualização de dados com `ggplot2`
+    + Exercícios
+* Aula 5
+    + Projeto:
+        + Escolher [dataset aberto](http://dados.gov.br/)
+        + Propor questão de negócios + visualizações
+        + Criar página do projeto no github com README.Rmd
+        + Ingestão e preparo dos dados
+* Aula 6
+    + Projeto
+        + Finalização
+        + Entrega / Apresentação
+    
+
+### Exercícios
+
+* Thomás Jagoda, [Visualização com ggplot2](https://github.com/JagodaT/MPRJ--Exercicios-ggplot2)
+* Ben Stenhaug, [The 5 verbs of dplyr](https://teachingr.com/content/the-5-verbs-of-dplyr/the-5-verbs-of-dplyr-exercise.html)
+
+### Projetos
+
+* [Execução Orçamentária](https://dan-reznik.github.io/MP-Execucao-Orcamentaria)
+
+### Livros Online (grátis)
 
 * <span style="background-color: #FFFF00">H. Wickham & G. Grolemund </span>, ["R for Data Science" (r4ds)](https://r4ds.had.co.nz/)
 * Kieran Healy, ["Data Visualization"](https://socviz.co/)
@@ -62,17 +114,21 @@ knitr::include_graphics("pics/mprj_and_puc.png")
 * Max Kuhn, ["Feature Engineering and Selection: A Practical Approach for Predictive Models"](https://bookdown.org/max/FES/)
 * Mark Sellors, ["Field Guide to the R Ecosystem"](https://fg2re.sellorm.com/)
 
-## Vídeos dos “Mestres”
+### Vídeos dos “Mestres”
 
 * Hadley Wickham, ["Whole Game"](https://www.youtube.com/watch?v=go5Au01Jrvs)
-* David Robinson, ["Tidytuesdays"](https://www.youtube.com/user/safe4democracy/videos) 
+* David Robinson, ["Tidytuesdays"](https://www.youtube.com/user/safe4democracy/videos)
+* Ben Stenhaug, ["Tidyverse Tutorial Playlist"](https://www.youtube.com/watch?v=lTTJPRwnONE&list=PLLxj8fULvXwGOf8uHlL4Tr62oXSB5k_in)
 
-## Sites Úteis
+### Sites Úteis
 
 * Tidyverse
     + [Pacotes](https://www.tidyverse.org/packages/)
     + [Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
     + [Regular Expressions](https://stringr.tidyverse.org/articles/regular-expressions.html)
+    + [TeachR](https://teachingr.com/)
+* Visualização
+    + [Data Visualization in R](https://djnavarro.github.io/satrdayjoburg/), [slides](https://djnavarro.github.io/satrdayjoburg/slides)
     + [Galeria do ggplot2](https://www.r-graph-gallery.com/portfolio/ggplot2-package/)
 * Pacotes R
     + [Leaderboard](https://www.rdocumentation.org/trends)
@@ -86,13 +142,3 @@ knitr::include_graphics("pics/mprj_and_puc.png")
     + [Rstudio & Git](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
     + Karl Broman, ["Github tutorial"](http://kbroman.org/github_tutorial/)
     + Michael Freedman, ["Git Collaboration"](http://slides.com/michaelfreeman/git-collaboration)
-    
-## Plano de Aulas (sujeito à alterações)
-
-```{r,eval=T,echo=F,out.width='50%'}
-knitr::include_graphics("pics/plano de aula I.png")
-```
-    
-## Projetos
-
-* [Execução Orçamentária](https://github.com/dan-reznik/MP-Execucao-Orcamentaria)
